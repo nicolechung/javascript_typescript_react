@@ -2,5 +2,8 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
 import App from './app'
+import { store } from 'common/redux/store'
 
-ReactDOM.render(<App />, document.getElementById('app'))
+import '@babel/polyfill'
+
+ReactDOM.render(<App store={store} />, document.getElementById('app'))
