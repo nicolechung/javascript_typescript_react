@@ -55,10 +55,17 @@ const colourStyles = {
 }
 
 
-const Form = ({ store, handleSubmit }) => {
+const Form = ({ dispatchSubmit }) => {
   const [todo, setTodo] = useState('')
+
+  function handleSubmit (event) {
+    event.preventDefault()
+    dispatchSubmit(todo)
+    setTodo('')
+  }
+
   return (
-    <form onSubmit={(event) => handleSubmit(event, todo)}>
+    <form onSubmit={(event) => handleSubmit(event)}>
       <input value={todo} onChange={e => setTodo(e.target.value)} />
       <Select
         defaultValue={colourOptions[2]}
@@ -73,10 +80,7 @@ const Form = ({ store, handleSubmit }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleSubmit: (event, todo) => {
-      event.preventDefault()
-      dispatch(addToDo({todo: todo}))
-    }
+    dispatchSubmit: (todo) => dispatch(addToDo({todo: todo}))
   }
 }
 

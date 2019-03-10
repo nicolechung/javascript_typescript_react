@@ -4,6 +4,7 @@ import * as types from './types'
 // might have to do something to handle "products in view" but for now
 const INITIAL_STATE = {
   todos: {},
+  count: 0
 }
 
 const reducers = {
@@ -17,7 +18,8 @@ function addToDo (state, payload) {
     todos: {
       ...state.todos,
       ...payload,
-    }
+    },
+    count: state.count + 1
   }
 }
 

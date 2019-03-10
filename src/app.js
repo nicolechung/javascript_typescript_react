@@ -1,17 +1,21 @@
-import React, { useState } from 'react'
-
+import React from 'react'
+import styled from 'styled-components'
 import { Provider } from 'react-redux'
 import ErrorBoundary from './error-boundary'
-import Form from 'components/form'
+import FormIncrementer from 'components/form-incrementer'
 
-const App = ({ store, handleSubmit }) => {
-  const [todo, setTodo] = useState('')
+const AppWrapper = styled.div`
+  margin: 50px auto;
+  max-width: 600px;
+`
+
+const App = ({ store }) => {
   return (
     <ErrorBoundary>
       <Provider store={store}>
-        <div>
-          <Form />
-        </div>
+        <AppWrapper>
+          <FormIncrementer />
+        </AppWrapper>
       </Provider>
     </ErrorBoundary>
   )
