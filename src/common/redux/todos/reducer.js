@@ -3,7 +3,7 @@ import * as types from './types'
 
 // might have to do something to handle "products in view" but for now
 const INITIAL_STATE = {
-  todos: [],
+  todos: {},
 }
 
 const reducers = {
@@ -14,10 +14,10 @@ const reducers = {
 function addToDo (state, payload) {
   return {
     ...state,
-    todos: [
+    todos: {
       ...state.todos,
-      ...payload
-    ]
+      ...payload,
+    }
   }
 }
 
