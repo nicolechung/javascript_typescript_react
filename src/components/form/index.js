@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { addToDo } from 'common/redux/todos/actions'
+import DatePicker from 'react-datepicker'
+import {setHours, setMinutes} from "date-fns";
 import chroma from 'chroma-js';
 import Select from 'react-select'
+
+import { addToDo } from 'common/redux/todos/actions'
 
 export const colourOptions = [
   { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
@@ -57,11 +60,16 @@ const colourStyles = {
 
 const Form = ({ dispatchSubmit }) => {
   const [todo, setTodo] = useState('')
+  const [startDate, setStartDate] = useState(new Date())
 
   function handleSubmit (event) {
     event.preventDefault()
     dispatchSubmit(todo)
     setTodo('')
+  }
+
+  function handleDateChange(date) {
+    setStartDate(date)
   }
 
   return (
@@ -72,6 +80,13 @@ const Form = ({ dispatchSubmit }) => {
         label="Single select"
         options={colourOptions}
         styles={colourStyles}
+      />
+      <DatePicker
+        selected={startDate}
+        onChange={handleDateChange}
+        showTimeSelect
+        includeTimes={[setHours(setMinutes(new Date(), 0), 17), setHours(setMinutes(new Date(), 30), 18), setHours(setMinutes(new Date(), 30), 19), setHours(setMinutes(new Date(), 30), 17)]}
+        dateFormat="MMMM d, yyyy h:mm aa"
       />
       <button type='submit'>Add</button>
     </form>
