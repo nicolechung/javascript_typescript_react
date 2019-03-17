@@ -32,7 +32,7 @@ const Form = ({ dispatchSubmit }) => {
   }
 
   function handleColorChange(selectOption) {
-    setColor(selectOption.value)
+    setColor(selectOption.color)
   }
 
   return (

@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import Todo from './todo'
+import { 
+  TodosContainer,
+} from './styled-components'
 
 /*
   This count prop is totally unnecessary and used to 
@@ -9,11 +12,11 @@ import Todo from './todo'
 const Todos = ({ todos }) => {
   if (!Object.keys(todos).length) return null
   return (
-    <Fragment>
+    <TodosContainer>
       {todos.map(todo => {
-        return <Todo todo={todo} />
+        return <Todo todo={todo} key={`todo-${todo.id}`} />
       })}
-    </Fragment>
+    </TodosContainer>
   )
 }
 
