@@ -9,14 +9,12 @@ class ErrorBoundary extends Component {
   componentDidCatch (error, info) {
     // Display fallback UI
     this.setState({ hasError: true })
-
-    console.log(error, info)
   }
 
   render () {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return <h1 className='error'>Oops! Something went wrong. Please let us know you had an issue at nicolechung [at] gmail.com</h1>;
+      return <h1 className='error'>Oops! Something went wrong.</h1>;
     }
     return this.props.children
   }
