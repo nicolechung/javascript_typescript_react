@@ -7,8 +7,9 @@ import Todos from 'components/todos'
 
 
 const AppWrapper = styled.div`
-  margin: 50px auto;
-  max-width: 600px;
+  margin: 20px 0;
+  width: 100%;
+  padding: 20px;
 `
 
 const App = ({ store }) => {

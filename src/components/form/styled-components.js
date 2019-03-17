@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const FormContainer = styled.div`
   width: 250px;
-  margin: 0 auto;
   text-align: center;
+  display: inline-block;
+  vertical-align: top;
   input {
     width: 100%;
     padding: 10px;

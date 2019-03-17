@@ -13,9 +13,11 @@ const Todos = ({ todos }) => {
   if (!Object.keys(todos).length) return null
   return (
     <TodosContainer>
+      <ul>
       {todos.map(todo => {
         return <Todo todo={todo} key={`todo-${todo.id}`} />
       })}
+      </ul>
     </TodosContainer>
   )
 }
