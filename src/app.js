@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Provider } from 'react-redux'
 import ErrorBoundary from './error-boundary'
-import FormIncrementer from 'components/form-incrementer'
+import FormOwnProps from 'components/form-ownprops'
+import Todos from 'components/todos'
+
 
 const AppWrapper = styled.div`
   margin: 50px auto;
@@ -14,7 +16,8 @@ const App = ({ store }) => {
     <ErrorBoundary>
       <Provider store={store}>
         <AppWrapper>
-          <FormIncrementer />
+          <FormOwnProps />
+          <Todos />
         </AppWrapper>
       </Provider>
     </ErrorBoundary>

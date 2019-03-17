@@ -7,10 +7,11 @@ import Todo from './todo'
   demo ownProps with Typescript
 */
 const Todos = ({ todos }) => {
+  if (!Object.keys(todos).length) return null
   return (
     <Fragment>
       {todos.map(todo => {
-        <Todo todo={todo} />
+        return <Todo todo={todo} />
       })}
     </Fragment>
   )

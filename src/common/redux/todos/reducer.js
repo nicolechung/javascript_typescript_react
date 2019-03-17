@@ -2,39 +2,35 @@ import { createReducer } from 'common/utils'
 import * as types from './types'
 
 // might have to do something to handle "products in view" but for now
-const INITIAL_STATE = {
-  todos: {},
-  count: 0
-}
+const INITIAL_STATE = []
+let nextTodoId = 0
 
 const reducers = {
   [types.ADD_TODO]: addToDo,
+  [types.TOGGLE_TODO]: toggleTodo,
   [types.REMOVE_TODO]: removeToDo
 }
 
 function addToDo (state, payload) {
-  return {
+  return [
     ...state,
-    todos: {
-      ...state.todos,
-      ...payload,
-    },
-    count: state.count + 1
-  }
+    {
+      task: payload.task,
+      color: payload.color,
+      startDate: payload.startDate,
+      completed: false,
+      id: nextTodoId++
+    }
+  ]
 }
 
 function removeToDo (state, payload) {
-  const todos = [...state.todos]
-  // const index = todos.findIndex(findElementInTodos)
-  return {
-    ...state,
-    ...todos
-  }
+  return state.filter(todo => todo.id !== payload.id)
 }
 
-function findElementInTodos (element) {
-  console.log(element)
-  debugger
+function toggleTodo (state, payload) {
+  return state.map(todo => todo.id === payload.id ? {...todo, completed: !todo.completed} : todo)
 }
+
 
 export default createReducer(INITIAL_STATE, reducers)
