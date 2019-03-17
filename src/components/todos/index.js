@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import { addToDo } from 'common/redux/todos/actions'
 import Todo from './todo'
 import { 
   TodosContainer,

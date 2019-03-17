@@ -14,7 +14,16 @@ export const TodosContainer = styled.div`
 export const TodoItem = styled.li`
   padding: 20px 20px;
   margin: 0;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  cursor: pointer;
+  & > svg:not(:root).svg-inline--fa {
+    display: inline-block;
+    margin-left: 10px;
+    text-align: right;
+    path {
+      fill: #7bc043;
+    }
+  }
 `
 
 export const Dot = styled.div`
@@ -33,8 +42,9 @@ export const Dot = styled.div`
 
 export const Task = styled.p`
   display: inline-block;
-  width: calc(100% - 140px);
+  width: calc(100% - 180px);
   margin: 0;
+  text-decoration: ${props => props.completed ? 'line-through' : 'none' };
 `
 
 export const Date = styled.p`
