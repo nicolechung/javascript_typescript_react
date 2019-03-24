@@ -19,10 +19,13 @@
       "no-unused-expression": true,
       "no-submodule-imports": [
         true,
-        "src"
+        "src",
+        "common",
+        "components"
       ],
       "object-literal-sort-keys": false,
       "ordered-imports": false,
+      "interface-over-type-literal": false,
       "quotemark": [true, "single", "jsx-double", "avoid-escape"],
       "semicolon": [true, "never"],
       "trailing-comma": [
