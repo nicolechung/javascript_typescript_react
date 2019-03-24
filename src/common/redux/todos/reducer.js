@@ -1,7 +1,6 @@
 import { createReducer } from 'common/utils'
 import * as types from './types'
 
-// might have to do something to handle "products in view" but for now
 const INITIAL_STATE = []
 let nextTodoId = 0
 

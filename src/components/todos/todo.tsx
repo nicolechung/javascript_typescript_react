@@ -4,6 +4,14 @@ import { toggleTodo } from 'common/redux/todos/actions'
 import { format } from 'date-fns'
 import { TodoItem, Dot, Task, Date } from './styled-components'
 
+export type Todo = {
+  color: string,
+  startDate: Date,
+  task: string
+  id?: string,
+  completed?: boolean,
+}
+
 const Todo = ({ todo, toggleComplete }) => {
   return (
     <TodoItem key={`todo-${todo.id}`} onClick={() => toggleComplete(todo)} >
