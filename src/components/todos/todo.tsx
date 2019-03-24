@@ -1,8 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { toggleTodo } from 'common/redux/todos/actions'
-import format from 'date-fns/format'
+import { format } from 'date-fns'
 import { TodoItem, Dot, Task, Date } from './styled-components'
+
+export type Todo = {
+  color: string,
+  startDate: Date,
+  task: string
+  id?: string,
+  completed?: boolean,
+}
 
 const Todo = ({ todo, toggleComplete }) => {
   return (
@@ -10,13 +18,13 @@ const Todo = ({ todo, toggleComplete }) => {
       <Dot color={todo.color} />
       <Task completed={todo.completed}>{todo.task}</Task>
       <Date>{format(todo.startDate, 'MMMM DD, YYYY')}</Date>
-      {todo.completed ? <i class="fas fa-check" /> : null}
+      {todo.completed ? <i className="fas fa-check" /> : null}
     </TodoItem>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-  toggleComplete: (todo) => dispatch(toggleTodo(todo))
+  toggleComplete: todo => dispatch(toggleTodo(todo)),
 })
 
 export default connect(null, mapDispatchToProps)(Todo)

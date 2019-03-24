@@ -30,7 +30,7 @@ export const Dot = styled.div`
   display: inline-block;
   margin-right: 10px;
   &:before {
-    background-color: ${(props) => props.color};
+    background-color: ${props => props.color};
     border-radius: 10px;
     content: ' ';
     display: block;
@@ -39,12 +39,15 @@ export const Dot = styled.div`
     width: 10px;
   }
 `
+type TaskProps = {
+  completed: boolean
+}
 
-export const Task = styled.p`
+export const Task = styled.p<TaskProps>`
   display: inline-block;
   width: calc(100% - 180px);
   margin: 0;
-  text-decoration: ${props => props.completed ? 'line-through' : 'none' };
+  text-decoration: ${(props:TaskProps) => props.completed ? 'line-through' : 'none' };
 `
 
 export const Date = styled.p`

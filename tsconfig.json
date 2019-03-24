@@ -19,7 +19,9 @@
       "baseUrl": ".",
       "sourceMap": true,
       "paths": {
-        "src/*": ["./src/*"]
+        "src/*": ["./src/*"],
+        "components/*": ["./src/components/*"],
+        "common/*": ["./src/common/*"],
       }
     },
     "include": [
