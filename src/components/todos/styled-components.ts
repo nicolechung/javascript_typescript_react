@@ -40,7 +40,7 @@ export const Dot = styled.div`
   }
 `
 type TaskProps = {
-  completed: boolean
+  completed?: boolean
 }
 
 export const Task = styled.p<TaskProps>`

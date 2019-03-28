@@ -12,7 +12,12 @@ export type Todo = {
   completed?: boolean,
 }
 
-const Todo = ({ todo, toggleComplete }) => {
+type ToDoProps = {
+  todo: Todo,
+  toggleComplete: (todo: Todo) => {}
+}
+
+const Todo:React.SFC<ToDoProps> = ({ todo, toggleComplete }) => {
   return (
     <TodoItem key={`todo-${todo.id}`} onClick={() => toggleComplete(todo)} >
       <Dot color={todo.color} />
