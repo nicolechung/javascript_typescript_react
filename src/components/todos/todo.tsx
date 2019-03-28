@@ -12,10 +12,15 @@ export type Todo = {
   completed?: boolean,
 }
 
-type ToDoProps = {
-  todo: Todo,
-  toggleComplete: (todo: Todo) => {}
+type DispatchProps = {
+  toggleComplete: (todo: Todo) => {},
 }
+
+type OwnProps = {
+  todo: Todo,
+}
+
+type ToDoProps = OwnProps & DispatchProps
 
 const Todo:React.SFC<ToDoProps> = ({ todo, toggleComplete }) => {
   return (
@@ -32,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
   toggleComplete: todo => dispatch(toggleTodo(todo)),
 })
 
-export default connect(null, mapDispatchToProps)(Todo)
+export default connect<void, DispatchProps, OwnProps>(null, mapDispatchToProps)(Todo)
