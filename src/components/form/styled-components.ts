@@ -6,7 +6,7 @@ export const FormContainer = styled.div`
   display: inline-block;
   vertical-align: top;
   margin-right: 20px;
-  &> form > div {
+  & > form > div {
     margin-bottom: 10px;
   }
   input {

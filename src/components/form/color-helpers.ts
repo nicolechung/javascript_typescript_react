@@ -1,4 +1,4 @@
-import chroma from 'chroma-js';
+import chroma from 'chroma-js'
 
 export const colourOptions = [
   { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
@@ -31,19 +31,25 @@ const dot = (color = '#ccc') => ({
 export const colourStyles = {
   control: styles => ({ ...styles, backgroundColor: 'white' }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    const color = chroma(data.color);
+    const color = chroma(data.color)
     return {
       ...styles,
       backgroundColor: isDisabled
         ? null
-        : isSelected ? data.color : isFocused ? color.alpha(0.1).css() : null,
+        : isSelected
+        ? data.color
+        : isFocused
+        ? color.alpha(0.1).css()
+        : null,
       color: isDisabled
         ? '#ccc'
         : isSelected
-          ? chroma.contrast(color, 'white') > 2 ? 'white' : 'black'
-          : data.color,
+        ? chroma.contrast(color, 'white') > 2
+          ? 'white'
+          : 'black'
+        : data.color,
       cursor: isDisabled ? 'not-allowed' : 'default',
-    };
+    }
   },
   input: styles => ({ ...styles, ...dot() }),
   placeholder: styles => ({ ...styles, ...dot() }),

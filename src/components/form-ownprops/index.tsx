@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from 'components/form'
+/* tslint-ignore */
 import uuidv4 from 'uuid/v4'
 
 /*
@@ -8,10 +9,7 @@ import uuidv4 from 'uuid/v4'
 */
 const FormOwnProps = () => {
   const id = uuidv4()
-  return (
-    <Form id={id}/>
-  )
+  return <Form id={id} />
 }
-
 
 export default FormOwnProps
