@@ -23,6 +23,9 @@ export const FormContainer = styled.div`
     }
   }
 `
+type ButtonProps = {
+  primary: boolean
+}
 
 export const Button = styled.button`
   background: #f37736;
@@ -35,4 +38,6 @@ export const Button = styled.button`
   &:focus {
     background: #ee4035;
   }
+  ${(props: ButtonProps) =>
+    props.primary ? 'background:#ff33ee' : 'background:#f37736'}
 `
