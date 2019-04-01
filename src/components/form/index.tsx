@@ -9,14 +9,14 @@ import { colourOptions, colourStyles } from './color-helpers'
 
 import { addToDo } from 'common/redux/todos/actions'
 import { FormContainer, Button } from './styled-components'
-import { Todo } from 'components/todos/todo'
+import { TodoType } from 'components/todos/todo'
 
 type FormOwnProps = {
   id: string
 }
 
 type FormDispatchProps = {
-  dispatchSubmit: (todo: Todo) => {}
+  dispatchSubmit: (todo: TodoType) => {}
 }
 
 type FormProps = FormOwnProps & FormDispatchProps
