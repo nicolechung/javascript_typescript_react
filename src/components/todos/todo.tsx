@@ -4,27 +4,27 @@ import { toggleTodo } from 'common/redux/todos/actions'
 import { format } from 'date-fns'
 import { TodoItem, Dot, Task, Date } from './styled-components'
 
-export type TodoType = {
-  color: string
-  startDate: Date
+export type Todo = {
+  color: string,
+  startDate: Date,
   task: string
-  id?: string
-  completed?: boolean
+  id?: string,
+  completed?: boolean,
 }
 
 type DispatchProps = {
-  toggleComplete: (todo: TodoType) => {}
+  toggleComplete: (todo: Todo) => {},
 }
 
 type OwnProps = {
-  todo: TodoType
+  todo: Todo,
 }
 
 type ToDoProps = OwnProps & DispatchProps
 
-const Todo: React.SFC<ToDoProps> = ({ todo, toggleComplete }) => {
+const Todo:React.SFC<ToDoProps> = ({ todo, toggleComplete }) => {
   return (
-    <TodoItem key={`todo-${todo.id}`} onClick={() => toggleComplete(todo)}>
+    <TodoItem key={`todo-${todo.id}`} onClick={() => toggleComplete(todo)} >
       <Dot color={todo.color} />
       <Task completed={todo.completed}>{todo.task}</Task>
       <Date>{format(todo.startDate, 'MMMM DD, YYYY')}</Date>
@@ -37,7 +37,4 @@ const mapDispatchToProps = dispatch => ({
   toggleComplete: todo => dispatch(toggleTodo(todo)),
 })
 
-export default connect<void, DispatchProps, OwnProps>(
-  null,
-  mapDispatchToProps
-)(Todo)
+export default connect<void, DispatchProps, OwnProps>(null, mapDispatchToProps)(Todo)
