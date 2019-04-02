@@ -1,10 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addToDo } from 'common/redux/todos/actions'
 import Todo from './todo'
-import { 
-  TodosContainer,
-} from './styled-components'
+import { TodosContainer } from './styled-components'
 
 /*
   This count prop is totally unnecessary and used to 
@@ -15,9 +12,9 @@ const Todos = ({ todos }) => {
   return (
     <TodosContainer>
       <ul>
-      {todos.map(todo => {
-        return <Todo todo={todo} key={`todo-${todo.id}`} />
-      })}
+        {todos.map(todo => {
+          return <Todo todo={todo} key={`todo-${todo.id}`} />
+        })}
       </ul>
     </TodosContainer>
   )
