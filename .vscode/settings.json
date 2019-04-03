@@ -1,6 +1,4 @@
 {
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "eslint.enable": false,
-  "cSpell.enabled": false
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
 }
